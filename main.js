@@ -1,68 +1,31 @@
-/* ESTRUTURAS DE CONTROLE */
+/* Estrutura de Repetição */
 
-// Estrutura de controle: if, else if, else
+let contador = 0;
 
-let numero = 0;
+// while (condição) { bloco de código }
 
-if (numero > 0) {
-    console.log("O número é positivo.");
-} else if (numero < 0) {
-    console.log("O número é negativo.");
-} else {
-    console.log("O número é zero.");
+while (contador <= 7) {
+    console.log("Contador1: " + contador);
+    contador++;
 }
 
-// quando há apenas 1 linha de código dentro do bloco, podemos omitir as chaves {}. 
-// No entanto, é recomendado sempre usar as chaves para evitar erros futuros.
+// do { bloco de código } while (condição)
+do {
+    // console.log("Contador2: " + contador);
+    contador++;
+} while (contador < 5);
 
-if(numero%2==0) console.log("O número é par.");
-else console.log("O número é ímpar.");
 
-let idade = 18;
-let maioridade = (idade >=18) ? "Maior de idade" : "Menor de idade"; // Operador ternário
+// for (inicialização; condição; passo) { bloco de código }
 
-let nota1=5, nota2=8, nota3=7;
-let aprovado = (nota1+nota2+nota3)/3 >= 6 ? "Aprovado" : "Reprovado";
-
-console.log(maioridade);
-console.log(aprovado);
-
-/* **** Estrutura de controle: switch case ***/
-
-let dia = 3;
-
-switch (dia) {
-    case 1:
-        console.log("Domingo");
-        break;
-    case 2:
-        console.log("Segunda-feira");
-        break;
-    case 3:
-        console.log("Terça-feira");
-        break;
-    case 4:
-        console.log("Quarta-feira");
-        break;
-    case 5:
-        console.log("Quinta-feira");
-        break;
-    case 6:
-        console.log("Sexta-feira");
-        break;
-    case 7:
-        console.log("Sábado");
-        break;
-    default:
-        console.log("Dia inválido.");
+for (let i = 0; i < 5; i++) { // com incremento
+    console.log("Contador do for1: " + i);
 }
 
-// É possível fazer a mesma coisa com if else if, mas o switch case é mais organizado e fácil de ler quando temos muitas condições para verificar.
-if (dia == 1) console.log("Domingo");
-else if (dia == 2) console.log("Segunda-feira");
-else if (dia == 3) console.log("Terça-feira");
-else if (dia == 4) console.log("Quarta-feira");
-else if (dia == 5) console.log("Quinta-feira");
-else if (dia == 6) console.log("Sexta-feira");
-else if (dia == 7) console.log("Sábado");
-else console.log("Dia inválido.");
+for (let j = 10; j > 5; j--) { // com decremento
+    console.log("Contador do for2: " + j);
+}
+for (let k=20; k>0; k-=2) { // com decremento de 2 em 2
+    console.log("Contador do for3: " + k);
+}
+
