@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Exercício de JavaScript — IDW 2026/1</title>
+<style>
+  @page {
+    size: A4;
+    margin: 2cm 2cm 2.2cm 2cm;
+    @bottom-center {
+      content: "UNEMAT — IDW 2026/1 — Prof. Ivan Luiz Pedroso Pires — pág. " counter(page) " de " counter(pages);
+      font-family: 'Helvetica', sans-serif;
+      font-size: 8.5pt;
+      color: #666;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  header {
+    border-bottom: 3px solid #006633;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 9pt;
+    color: #444;
+    margin-bottom: 4px;
+  }
+
+  .top-bar .left { font-weight: bold; color: #006633; letter-spacing: 0.5px; }
+
+  h1 {
+    font-size: 17pt;
+    margin: 4px 0 2px 0;
+    color: #003319;
+  }
+
+  .subtitle {
+    font-size: 10.5pt;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 18px;
+    margin-top: 8px;
+    font-size: 9.5pt;
+    color: #333;
+    flex-wrap: wrap;
+  }
+
+  .meta div { background: #f3f7f4; padding: 4px 10px; border-radius: 4px; border-left: 3px solid #006633; }
+
+  h2 {
+    font-size: 12.5pt;
+    color: #003319;
+    border-bottom: 1px solid #cfdcd3;
+    padding-bottom: 3px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 11pt;
+    color: #004a25;
+    margin-top: 12px;
+    margin-bottom: 6px;
+  }
+
+  p { margin: 6px 0; text-align: justify; }
+
+  ol, ul { margin: 6px 0 6px 22px; padding: 0; }
+  li { margin: 3px 0; }
+
+  code {
+    font-family: 'Courier New', 'Consolas', monospace;
+    background: #f4f4f4;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 9.8pt;
+    color: #b1290f;
+  }
+
+  pre {
+    background: #1e1e1e;
+    color: #dcdcdc;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 9pt;
+    line-height: 1.35;
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 10px 0;
+    font-size: 9.8pt;
+  }
+
+  th, td {
+    border: 1px solid #b9c8c0;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: #006633;
+    color: white;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) td { background: #f3f7f4; }
+
+  .callout {
+    background: #fff8e1;
+    border-left: 4px solid #f0a500;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 10pt;
+    border-radius: 3px;
+  }
+
+  .callout-info {
+    background: #e3f2fd;
+    border-left: 4px solid #1976d2;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 10pt;
+    border-radius: 3px;
+  }
+
+  .callout-danger {
+    background: #ffebee;
+    border-left: 4px solid #c62828;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 10pt;
+    border-radius: 3px;
+  }
+
+  .scenario {
+    background: linear-gradient(90deg, #f0f7f3 0%, #ffffff 100%);
+    border: 1px solid #cfdcd3;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0;
+  }
+
+  .footer-meme {
+    margin-top: 22px;
+    padding: 14px;
+    background: #1e1e1e;
+    color: #f7df1e;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    text-align: center;
+  }
+
+  .footer-meme .author { color: #888; font-size: 8.5pt; margin-top: 6px; }
+
+  .ponto {
+    display: inline-block;
+    background: #f0a500;
+    color: white;
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-size: 9pt;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <span class="left">UNEMAT — UNIVERSIDADE DO ESTADO DE MATO GROSSO</span>
+    <span>05/05/2026</span>
+  </div>
+  <h1>Exercício Prático — Calculadora de Estacionamento de Shopping</h1>
+  <div class="subtitle">Disciplina: <b>Introdução ao Desenvolvimento Web (IDW)</b> — Semestre 2026/1</div>
+  <div class="meta">
+    <div><b>Professor:</b> Ivan Luiz Pedroso Pires</div>
+    <div><b>Valor:</b> <span class="ponto">1,0 ponto</span></div>
+    <div><b>Avaliação:</b> Compõe a <b>Avaliação 2</b></div>
+    <div><b>Tempo estimado:</b> 30 minutos</div>
+  </div>
+</header>
+
+<h2>1. Contexto</h2>
+
+<div class="scenario">
+<p>Todo shopping cobra estacionamento por hora, com regras que mudam conforme o dia da semana — sábado costuma ser mais caro (movimento alto) e domingo costuma ter promoção. Você foi convidado(a) a fazer um <b>protótipo simples</b> da calculadora que aparece no totem de saída do estacionamento. O programa recebe quantas horas o cliente ficou e o dia da semana, e imprime no console a cobrança hora a hora e o valor total.</p>
+</div>
+
+<p>O exercício revisa todos os tópicos vistos na aula de hoje: <code>const</code>, <code>let</code>, <code>switch case</code>, operador ternário, operador módulo (<code>%</code>) e <code>for</code>.</p>
+
+<h2>2. O que você precisa fazer</h2>
+
+<p>Crie um arquivo chamado <code>estacionamento.js</code> e siga os passos abaixo nesta ordem.</p>
+
+<h3>Passo 1 — Declare as variáveis</h3>
+<ul>
+  <li><code>const TARIFA_HORA = 8.00;</code> — valor de cada hora.</li>
+  <li><code>let horas = 5;</code> — quantas horas o cliente ficou (você pode trocar para testar).</li>
+  <li><code>let diaSemana = 7;</code> — número de 1 a 7 (1 = Domingo, 7 = Sábado).</li>
+  <li><code>let total = 0;</code> — vai acumular o valor a pagar.</li>
+</ul>
+
+<h3>Passo 2 — Multiplicador do dia (<code>switch case</code>)</h3>
+<p>Crie a variável <code>let multiplicador;</code> e use um <code>switch case</code> sobre <code>diaSemana</code>:</p>
+<ul>
+  <li>Caso <b>1</b> (Domingo): <code>multiplicador = 0.5;</code> (promoção: 50% off).</li>
+  <li>Caso <b>7</b> (Sábado): <code>multiplicador = 1.2;</code> (movimento alto).</li>
+  <li><b>default</b> (qualquer outro dia): <code>multiplicador = 1.0;</code>.</li>
+</ul>
+
+<h3>Passo 3 — Loop de cobrança (<code>for</code> + <code>%</code>)</h3>
+<p>Use um <code>for</code> que vai de <code>1</code> até <code>horas</code> (inclusive) e, dentro dele:</p>
+<ol>
+  <li>Some <code>TARIFA_HORA * multiplicador</code> ao <code>total</code>.</li>
+  <li>Imprima no console: <code>"Hora X — total parcial: R$ Y.YY"</code> (use <code>.toFixed(2)</code>).</li>
+  <li>Use o operador módulo <code>%</code>: quando a hora atual for par, imprima também <code>"⏰ Tique-taque..."</code>.</li>
+</ol>
+
+<h3>Passo 4 — Mensagem final (operador ternário)</h3>
+<p>Depois do <code>for</code>, crie uma variável <code>mensagem</code> usando o operador ternário:</p>
+<ul>
+  <li>Se <code>total &gt; 30</code>: <code>"Tarifa cheia"</code>.</li>
+  <li>Caso contrário: <code>"Tarifa promocional"</code>.</li>
+</ul>
+<p>Imprima no console o valor total formatado e a mensagem.</p>
+
+<h2>3. Saída esperada (com <code>horas = 5</code> e <code>diaSemana = 7</code>)</h2>
+
+<pre>Hora 1 — total parcial: R$ 9.60
+Hora 2 — total parcial: R$ 19.20
+⏰ Tique-taque...
+Hora 3 — total parcial: R$ 28.80
+Hora 4 — total parcial: R$ 38.40
+⏰ Tique-taque...
+Hora 5 — total parcial: R$ 48.00
+Total a pagar: R$ 48.00 — Tarifa cheia</pre>
+
+<div class="callout-info">
+<b>Dica:</b> teste com pelo menos <b>dois</b> conjuntos de valores diferentes (por exemplo, mude o <code>diaSemana</code> para 1 e veja a promoção de domingo) antes de entregar.
+</div>
+
+<h2>4. Critérios de avaliação</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 50%;">Critério</th>
+      <th style="width: 15%; text-align:center;">Pontos</th>
+      <th style="width: 35%;">O que será observado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Uso correto de <code>const</code> e <code>let</code></td>
+      <td style="text-align:center;">0,15</td>
+      <td>Constante para a tarifa, <code>let</code> para o que pode mudar.</td>
+    </tr>
+    <tr>
+      <td><code>switch case</code> do dia da semana</td>
+      <td style="text-align:center;">0,20</td>
+      <td>Cobre Domingo, Sábado e <code>default</code>, com <code>break</code>.</td>
+    </tr>
+    <tr>
+      <td>Estrutura de repetição <code>for</code></td>
+      <td style="text-align:center;">0,25</td>
+      <td>Itera de 1 a <code>horas</code> e acumula o total corretamente.</td>
+    </tr>
+    <tr>
+      <td>Operador módulo (<code>%</code>) na pausa</td>
+      <td style="text-align:center;">0,15</td>
+      <td>Imprime "Tique-taque..." nas horas pares.</td>
+    </tr>
+    <tr>
+      <td>Operador ternário na mensagem final</td>
+      <td style="text-align:center;">0,15</td>
+      <td>Sintaxe <code>condicao ? a : b</code> aplicada corretamente.</td>
+    </tr>
+    <tr>
+      <td>Organização e legibilidade</td>
+      <td style="text-align:center;">0,10</td>
+      <td>Indentação, nomes claros e saída no formato pedido.</td>
+    </tr>
+    <tr style="background:#f0a500; color:white; font-weight:bold;">
+      <td><b>Total</b></td>
+      <td style="text-align:center;"><b>1,00</b></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>5. Instruções de envio</h2>
+
+<div class="callout-danger">
+<b>Atenção ao prazo:</b> a entrega é exclusivamente pelo <b>SIGAA</b>, hoje (<b>05/05/2026</b>), das <b>21h00 às 22h00</b>. Envios fora desse intervalo <b>não serão aceitos</b> pelo sistema.
+</div>
+
+<ol>
+  <li>Salve seu código em um arquivo chamado <code>estacionamento.js</code>.</li>
+  <li>Acesse o <b>SIGAA</b> &rarr; <b>Portal Discente</b> &rarr; entre na <b>Turma Virtual</b> da disciplina <b>Introdução ao Desenvolvimento Web (IDW) — 2026/1</b>.</li>
+  <li>No menu lateral esquerdo, clique em <b>Atividades</b> &rarr; <b>Tarefas</b>.</li>
+  <li>Localize a <b>Tarefa</b> aberta para hoje (<b>05/05/2026</b>) e clique em <b>Enviar Tarefa</b>.</li>
+  <li>Anexe o arquivo <code>estacionamento.js</code> como resposta e confirme o envio.</li>
+  <li>Anote o protocolo / horário exibido pelo SIGAA — ele é a sua prova de entrega.</li>
+</ol>
+
+<div class="callout">
+<b>Importante:</b> envie apenas o <code>.js</code> (não compacte em <code>.zip</code>, não envie <code>.txt</code> e não cole o código no campo de texto). O nome do arquivo <b>deve</b> ser <code>estacionamento.js</code>.
+</div>
+
+<div class="footer-meme">
+  // TODO: terminar antes das 22h<br>
+  console.log("It works on my machine ¯\\_(ツ)_/¯");<br>
+  <span class="author">— 99% dos bugs estão entre a cadeira e o teclado. Bom código! 🐛💻</span>
+</div>
+
+</body>
+</html>
