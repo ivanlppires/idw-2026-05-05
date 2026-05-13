@@ -37,3 +37,7 @@ console.log(multiplicacao(2,8))
 console.log(ehPar(7))
 console.log(quadrado(5))
 console.log(numeroSorte())
+
+// exercicio: faça uma calculadora. Use o prompt para receber número. Exemplo:
+const num1 = parseInt(prompt("Digite o primeiro número:"));
+console.log("Voê digitou o número " + num1);
