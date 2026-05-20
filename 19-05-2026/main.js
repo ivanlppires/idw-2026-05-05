@@ -1,28 +1,30 @@
-/* EVENTOS EM JAVASCRIPT */
+/* EVENTOS NO FORMULARIO PARA SALVAR EM LOCAL STORAGE */
 
-/*
-    document => Acessa os elementos da DOM (Document Object Model)
-    window = > Acessa os elementos da janela do navegador BOM (Browser Object Model)
-*/
 
-// 1. Como eu acesso um elemento html
-const botao1 = document.querySelector("#mensagem");
-const botao2 = document.querySelector("#imprimir");
-/*
-    document.getElements.byTagName // retorna um vetor dos elementos do tipo especificado
-    document.getElements.byClassName // retorna um vetor dos elementos com a classe especificada
-    document.getElementById // retorna o elemento com o id especificado
-    document.querySelector // retorna o primeiro elemento que corresponde ao seletor css especificado
-    document.querySelectorAll // retorna um vetor de elementos que correspondem ao seletor css especificado
+const btnSalvar = document.querySelector("#salvar");
 
-    Os seletores podem ser id # ou classe . ou tag name
-*/
+/* NÓS VAMOS SALVAR NO VETOR */
+// Vetor armazena vários produtos  (array) - neste exemplo é produto.
+// pra inserir no vetor é push
+// posso acessar pelo índice,
+// ex: produtos[0] - primeiro produto
+// produtos[1] - segundo produto
+// produtos[2] - terceiro produto
+// e assim por diante
 
-// 2. Como eu adiciono um evento a um elemento html
-botao1.addEventListener("click", () => {
-    window.alert("Olá mundo!");
-})
+// [] é um vetor em javascript
+const produtos = []; // vetor produtos
+const produto = document.querySelector("#produto") // busca o elemento
 
-botao2.addEventListener("click", () => {
-    window.print();
+btnSalvar.addEventListener("click", ()=> {
+    const nomeProduto = produto.value; // pega o valor do elemento (o que a pessa digitou)
+    produtos.push(nomeProduto); // adiciona o produto ao vetor
+    produto.value = ""; // limpa o campo de texto
+    mostraProdutos(); // chama a função para exibir os produtos
 });
+
+const lista = document.querySelector("#lista"); // elemento onde a lista de produtos será exibida
+const mostraProdutos = () => {
+    lista.innerHTML = ""; // limpa a lista antes de exibir os produtos
+    lista.innerHTML = produtos;
+}
