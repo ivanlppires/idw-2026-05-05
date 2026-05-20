@@ -26,5 +26,7 @@ btnSalvar.addEventListener("click", ()=> {
 const lista = document.querySelector("#lista"); // elemento onde a lista de produtos será exibida
 const mostraProdutos = () => {
     lista.innerHTML = ""; // limpa a lista antes de exibir os produtos
-    lista.innerHTML = produtos;
+    for(let item of produtos){
+        lista.innerHTML += '<p> - ' + item + '</p>'; // adiciona cada produto como um parágrafo na lista
+    }
 }
